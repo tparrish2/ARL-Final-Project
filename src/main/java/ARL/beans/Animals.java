@@ -24,6 +24,7 @@ public class Animals {
 	@Id
 	@GeneratedValue
 	private int id;
+	private int ArlId;
 	private String animalName;
 	private String animalType; // dog, cat, so on.
 	private String breed;

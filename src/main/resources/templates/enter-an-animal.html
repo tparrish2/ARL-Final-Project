@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th=www.thymeleaf.org>
+<head>
+<meta charset="UTF-8">
+<title>Enter an animal</title>
+</head>
+<body>
+	<h2>Enter an animal that is up for adoption</h2>
+	<form th:action="@{animal}" th:action="@{/update/{id}(id=${animal})}" method="post">
+	Name: <input name="animalName" size="20" th:field="*{animalName}"><br />
+	ARl ID: <input name="ArlId" size="20" th:field="*{ArlId}"><br />
+	Animal Type: <input name="animalType" size="20" th:field="*{animalType}"><br />
+	Animal Breed: <input name="breed" size="20" th:field="*{breed}"><br />
+	Approximate Age: <input name="aproxAge" size="20" th:field="*{aproxAge}"><br />
+	Animal Weight: <input name="weight" size="20" th:field="*{weight}"> pounds<br />
+	Animal Description <input name="description" size="300" th:field="*{description}"><br /><br />
+	<h3>*** ARL Contact Information ***</h3>
+	ARL Name: <input name="contactinfo.name" size="30" th:field="*{contactinfo.name}"><br />
+	ARL Phone Number: <input name="contactinfo.phone" size="30" th:field="*{contactinfo.phone}"><br />
+	ARL Email: <input name="contactinfo.email" size="30" th:field="*{contactinfo.email}"><br />
+	ARL Address: <input name="contactinfo.address" size="30" th:field="*{contactinfo.address}"><br />
+	ARL City: <input name="contactinfo.city" size="30" th:field="*{contactinfo.city}"><br />
+	ARL State: <input name="contactinfo.state" size="30" th:field="*{contactinfo.state}"><br />
+	<input name="submit" type="submit" value="submit" />
+	</form>
+</body>
+</html>
