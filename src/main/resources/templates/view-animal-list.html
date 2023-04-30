@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="Trevor Parrish">
+<style>
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
+<title>View All Animals</title>
+</head>
+  <body>
+    <h2>List of Animals</h2>
+    <form>
+      <table>
+      	<tr>
+      	  <th>ID</th>
+      	  <th>Name</th>
+      	  <th>Animals Type</th>
+      	  <th>Animal Breed</th>
+      	  <th>Approximate Age</th>
+      	  <th>Animal Weight</th>
+      	  <th>Animal Description</th>
+      	  <th>ARL Name</th>
+      	  <th>ARL ID</th>
+      	  <th>ARL Phone</th>
+      	  <th>ARL Email</th>
+      	  <th>ARL Address</th>
+      	  <th>ARL City</th>
+      	  <th>ARL State</th>
+      	</tr>
+        <tr th:each="currentAnimal : ${animals}" >
+		  <td th:text="${currentAnimal.id}" />
+ 		  <td th:text="${currentAnimal.animalName}" />
+ 		  <td th:text="${currentAnimal.animalType}" />
+ 		  <td th:text="${currentAnimal.breed}" />
+ 		  <td th:text="${currentAnimal.approxAge}" />
+ 		  <td th:text="${currentAnimal.weight}" />
+ 		  <td th:text="${currentAnimal.description}" />
+ 		  <td th:text="${currentAnimal.contact.name}" />
+ 		  <td th:text="${currentAnimal.ArlId}" />
+ 		  <td th:text="${currentAnimal.contact.phone}" />
+ 		  <td th:text="${currentAnimal.contact.email}" />
+ 		  <td th:text="${currentAnimal.contact.address}" />
+ 		  <td th:text="${currentAnimal.contact.city}" />
+ 		  <td th:text="${currentAnimal.contact.state}" />
+ 		  <td><a th:href="@{/edit/{id}(id=${currentAnimal.id})}">Edit</a></td>
+ 		  <td><a th:href="@{/delete/{id}(id=${currentAnimal.id})}">Delete</a></td>
+		</tr>
+	  </table>
+    </form>
+    <h3><a href="/enter-an-animal">Add a new animal</a></h3>
+    <h3><a href="/arl-homepage">Return to ARL Home Page</a></h3>
+	<h3><a href="/index">Return to Home Page</a></h3>
+  </body>
+</html>
