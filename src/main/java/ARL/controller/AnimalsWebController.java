@@ -15,6 +15,7 @@ import ARL.repository.AnimalsRepository;
  * @author Bradh 
  * CIS175 23290 Java II Spring 2023
  * Apr 2, 2023
+ * Updated by Trevor on Apr 29, 2023
  */
 
 @Controller
@@ -28,23 +29,34 @@ public class AnimalsWebController {
 	// to a view of all animals (in a list). So that way the arl user does not have to return
 	// to the enter page over and over again. - Brad 4/16/23
 	
-	@GetMapping({"/", "View-animal-list"})
+	@GetMapping({"/view-animal-list"})
 	public String ViewAnimalList(Model model) {
 		
 		if (repo.findAll().isEmpty()) {
 			return EnterAnAnimal(model);
 		}
 		
-		model.addAttribute("Animals", repo.findAll());
+		model.addAttribute("animals", repo.findAll());
 		return "view-animal-list";
+	}
+	
+	@GetMapping({"/view-animal-list-adoptee"})
+	public String ViewAnimalListAdoptee(Model model) {
+		
+		//if (repo.findAll().isEmpty()) {
+			//return EnterAnAnimal(model);
+		//}
+		
+		model.addAttribute("animals", repo.findAll());
+		return "view-animal-list-adoptee";
 	}
 	
 	@GetMapping("/enter-an-animal")
 	public String EnterAnAnimal(Model model) {
-		Animals newAn = new Animals();
-		model.addAttribute("animal", newAn);
-		return "enter-an-animal";
-	}
+		Animals a = new Animals();
+		model.addAttribute("newAnimal", a);
+		return "/enter-an-animal";
+	} 
 	
 	@PostMapping("/enter-an-animal")
 	public String EnterAnAnimal(@ModelAttribute Animals a, Model model) {
@@ -53,14 +65,14 @@ public class AnimalsWebController {
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String EditAnimals(@PathVariable("id") long id, Model model) {
+	public String showUpdateAnimal(@PathVariable("id") long id, Model model) {
 		Animals a = repo.findById(id).orElse(null);
-		model.addAttribute("animal", a);
+		model.addAttribute("newAnimal", a);
 		return "enter-an-animal";
 	}
 	
 	@PostMapping("/update/{id}")
-	public String ReviseAnimals(Animals a, Model model) {
+	public String reviseAnimal(Animals a, Model model) {
 		repo.save(a);
 		return EnterAnAnimal(model);
 	}

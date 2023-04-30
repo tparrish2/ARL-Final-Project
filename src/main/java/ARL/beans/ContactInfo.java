@@ -1,5 +1,6 @@
 package ARL.beans;
 
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
  * Apr 2, 2023
  */
 
+@Embeddable
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

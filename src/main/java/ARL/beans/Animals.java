@@ -2,6 +2,7 @@ package ARL.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 
 /*The way this class is built is to show off the animal before giving the ARL contact info*/
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,7 +30,7 @@ public class Animals {
 	private String animalName;
 	private String animalType; // dog, cat, so on.
 	private String breed;
-	private String aproxAge;
+	private String approxAge;
 	private double weight;
 	private String description; // A string property to describe the personality of the animal. Good around kids, needs a large space to be happy, scared of other animals, so on.
 	@Autowired
