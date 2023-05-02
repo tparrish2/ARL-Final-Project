@@ -181,15 +181,13 @@ h3::first-letter {
     <form>
       <table>
       	<tr>
-      	  <th>ID</th>
       	  <th>Name</th>
-      	  <th>Animals Type</th>
+      	  <th>Animal Type</th>
       	  <th>Animal Breed</th>
-      	  <th>Approximate Age</th>
-      	  <th>Animal Weight</th>
-      	  <th>Animal Description</th>
+      	  <th>Age</th>
+      	  <th>Weight in Pounds</th>
+      	  <th>Description</th>
       	  <th>ARL Name</th>
-      	  <th>ARL ID</th>
       	  <th>ARL Phone</th>
       	  <th>ARL Email</th>
       	  <th>ARL Address</th>
@@ -197,7 +195,6 @@ h3::first-letter {
       	  <th>ARL State</th>
       	</tr>
         <tr th:each="currentAnimal : ${animals}" >
-		  <td th:text="${currentAnimal.id}" />
  		  <td th:text="${currentAnimal.animalName}" />
  		  <td th:text="${currentAnimal.animalType}" />
  		  <td th:text="${currentAnimal.breed}" />
@@ -205,7 +202,6 @@ h3::first-letter {
  		  <td th:text="${currentAnimal.weight}" />
  		  <td th:text="${currentAnimal.description}" />
  		  <td th:text="${currentAnimal.contact.name}" />
- 		  <td th:text="${currentAnimal.ArlId}" />
  		  <td th:text="${currentAnimal.contact.phone}" />
  		  <td th:text="${currentAnimal.contact.email}" />
  		  <td th:text="${currentAnimal.contact.address}" />

@@ -167,7 +167,7 @@ h3::first-letter {
   </ul>
   </div>
   </nav>
-    <h1>Create Adoptee Application</h1>
+    <h1>Create Application</h1>
     <form action="#" th:action="@{/create-adoptee-application}" th:object="${adoptee}" method="post">
         <h2>Contact Information:</h2>
         <label for="contact.name">Name:</label>
@@ -188,7 +188,7 @@ h3::first-letter {
         <label for="contact.state">State:</label>
         <input type="text" th:field="*{contact.state}" id="contact.state" required>
         <br><br>
-        <h2>Adoptee Information:</h2>
+        <h2>Household Information:</h2>
         <label for="householdSize">Household Size:</label>
         <input type="number" th:field="*{householdSize}" id="householdSize" required>
         <br>

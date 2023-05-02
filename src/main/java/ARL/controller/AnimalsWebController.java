@@ -87,28 +87,26 @@ public class AnimalsWebController {
 		repo.delete(a);
 		return EnterAnAnimal(model);
 	}
-	 @GetMapping("/animal-search")
-	    public String searchAnimal(Model model) {
-	        model.addAttribute("searchAnimal", new Animals());
-	        return "animal-search";
-	    }
+	@GetMapping("/animal-search")
+	public String searchAnimal(Model model) {
+		model.addAttribute("searchAnimal", new Animals());
+	    return "animal-search";
+	}
 
-	    @PostMapping("/animal-search")
-	    public String searchAnimal(@ModelAttribute Animals searchAnimal, Model model) {
-	        List<Animals> animals = repo.findAll().stream()
-	                .filter(animal -> animalMatchesSearch(animal, searchAnimal))
-	                .collect(Collectors.toList());
-	        model.addAttribute("animals", animals);
-	        return "animal-search-results";
-	    }
+	@PostMapping("/animal-search")
+	public String searchAnimal(@ModelAttribute Animals searchAnimal, Model model) {
+		List<Animals> animals = repo.findAll().stream().filter(animal -> animalMatchesSearch(animal, searchAnimal)).collect(Collectors.toList());
+	    model.addAttribute("animals", animals);
+	    return "animal-search-results";
+	}
 
-	    private boolean animalMatchesSearch(Animals animal, Animals searchAnimal) {
-	        boolean nameMatches = searchAnimal.getAnimalName() == null || searchAnimal.getAnimalName().trim().isEmpty() || animal.getAnimalName().equalsIgnoreCase(searchAnimal.getAnimalName());
-	        boolean typeMatches = searchAnimal.getAnimalType() == null || searchAnimal.getAnimalType().trim().isEmpty() || animal.getAnimalType().equalsIgnoreCase(searchAnimal.getAnimalType());
-	        boolean breedMatches = searchAnimal.getBreed() == null || searchAnimal.getBreed().trim().isEmpty() || animal.getBreed().equalsIgnoreCase(searchAnimal.getBreed());
+	private boolean animalMatchesSearch(Animals animal, Animals searchAnimal) {
+		boolean nameMatches = searchAnimal.getAnimalName() == null || searchAnimal.getAnimalName().trim().isEmpty() || animal.getAnimalName().equalsIgnoreCase(searchAnimal.getAnimalName());
+	    boolean typeMatches = searchAnimal.getAnimalType() == null || searchAnimal.getAnimalType().trim().isEmpty() || animal.getAnimalType().equalsIgnoreCase(searchAnimal.getAnimalType());
+	    boolean breedMatches = searchAnimal.getBreed() == null || searchAnimal.getBreed().trim().isEmpty() || animal.getBreed().equalsIgnoreCase(searchAnimal.getBreed());
 
-	        return nameMatches && typeMatches && breedMatches;
-	    }
+	    return nameMatches && typeMatches && breedMatches;
+	}
 
 
  

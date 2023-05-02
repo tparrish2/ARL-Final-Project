@@ -182,11 +182,12 @@ h3::first-letter {
       <table>
       	<tr>
       	  <th>Name</th>
-      	  <th>Animals Type</th>
+      	  <th>Animal Type</th>
       	  <th>Animal Breed</th>
-      	  <th>Approximate Age</th>
-      	  <th>Animal Weight</th>
-      	  <th>Animal Description</th>
+      	  <th>Age</th>
+      	  <th>Weight(Pounds)</th>
+      	  <th>Description</th>
+      	  <th>Location</th>
       	</tr>
         <tr th:each="currentAnimal : ${animals}" >
  		  <td th:text="${currentAnimal.animalName}" />
@@ -195,6 +196,7 @@ h3::first-letter {
  		  <td th:text="${currentAnimal.approxAge}" />
  		  <td th:text="${currentAnimal.weight}" />
  		  <td th:text="${currentAnimal.description}" />
+ 		  <td th:text="${currentAnimal.contact.name}" />
 		</tr>
 	  </table>
     </form>

@@ -16,6 +16,13 @@
 
   
 <style>
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
 .navbar{
 justify-content:flex-end;
 }
@@ -170,26 +177,25 @@ h3::first-letter {
     <h2>Search Results</h2>
     <table>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Animal Type</th>
-            <th>Animal Breed</th>
-            <th>Approximate Age</th>
-            <th>Animal Weight</th>
-            <th>Animal Description</th>
-        </tr>
-        <tr th:each="animal : ${animals}">
-            <td th:text="${animal.id}"></td>
-            <td th:text="${animal.animalName}"></td>
-            <td th:text="${animal.animalType}"></td>
-            <td th:text="${animal.breed}"></td>
-            <td th:text="${animal.approxAge}"></td>
-            <td th:text="${animal.weight}"></td>
-            <td th:text="${animal.description}"></td>
+          <th>Name</th>
+      	  <th>Animal Type</th>
+      	  <th>Animal Breed</th>
+      	  <th>Age</th>
+      	  <th>Weight(Pounds)</th>
+      	  <th>Description</th>
+      	  <th>Location</th>
+      	</tr>
+        <tr th:each="currentAnimal : ${animals}" >
+ 		  <td th:text="${currentAnimal.animalName}" />
+ 		  <td th:text="${currentAnimal.animalType}" />
+ 		  <td th:text="${currentAnimal.breed}" />
+ 		  <td th:text="${currentAnimal.approxAge}" />
+ 		  <td th:text="${currentAnimal.weight}" />
+ 		  <td th:text="${currentAnimal.description}" />
+ 		  <td th:text="${currentAnimal.contact.name}" />
         </tr>
     </table>
     <h3><a href="/animal-search">Search Again</a></h3>
-    <h3><a href="/arl-homepage">Return to ARL Home Page</a></h3>
     <h3><a href="/index">Return to Home Page</a></h3>
 <footer>
 	<p>For educational purpose only! <img width="5%" height= "5%" src="https://i.ibb.co/HxCxTHJ/pets-logo.png"  alt="Pets logo"></p>

@@ -169,20 +169,43 @@ h3::first-letter {
   </nav>
 	<h2>Enter an animal that is up for adoption</h2>
 	<form th:object="${newAnimal}" th:action="@{/update/{id}(id=${newAnimal.id})}" method=POST>
-	Name: <input name="animalName" size="20" th:field="*{animalName}"><br />
-	ARL ID: <input name="ArlId" size="20" th:field="*{ArlId}"><br />
-	Animal Type: <input name="animalType" size="20" th:field="*{animalType}"><br />
-	Animal Breed: <input name="breed" size="20" th:field="*{breed}"><br />
-	Approximate Age: <input name="approxAge" size="20" th:field="*{approxAge}"><br />
-	Animal Weight: <input name="weight" size="20" th:field="*{weight}"> pounds<br />
-	Animal Description <input name="description" size="300" th:field="*{description}"><br /><br />
+	<label for="animalName">Name:</label>
+    <input type="text" th:field="*{animalName}" id="animalName" required>
+    <br>
+    <label for="animalType">Animal Type:</label>
+    <input type="text" th:field="*{animalType}" id="animalType" required>
+    <br>
+    <label for="breed">Animal Breed:</label>
+    <input type="text" th:field="*{breed}" id="breed" required>
+    <br>
+    <label for="approxAge">Approximate Age:</label>
+    <input type="text" th:field="*{approxAge}" id="approxAge" required>
+    <br>
+    <label for="weight">Animal Weight:</label>
+    <input type="text" th:field="*{weight}" id="weight" required>
+    <br>
+    <label for="description">Animal Description:</label>
+    <textarea th:field="*{description}" id="description" rows="4" cols="50" required></textarea>
+    <br>
 	<h3>*** ARL Contact Information ***</h3>
-	ARL Name: <input name="contact.name" size="30" th:field="*{contact.name}"><br />
-	ARL Phone Number: <input name="contact.phone" size="30" th:field="*{contact.phone}"><br />
-	ARL Email: <input name="contact.email" size="30" th:field="*{contact.email}"><br />
-	ARL Address: <input name="contact.address" size="30" th:field="*{contact.address}"><br />
-	ARL City: <input name="contact.city" size="30" th:field="*{contact.city}"><br />
-	ARL State: <input name="contact.state" size="30" th:field="*{contact.state}"><br />
+	<label for="contact.name">ARL Name:</label>
+    <input type="text" th:field="*{contact.name}" id="contact.name" required>
+    <br>
+    <label for="contact.phone">ARL Phone Number:</label>
+    <input type="text" th:field="*{contact.phone}" id="contact.phone" required>
+    <br>
+    <label for="contact.email">ARL Email:</label>
+    <input type="text" th:field="*{contact.email}" id="contact.email" required>
+    <br>
+    <label for="contact.address">ARL Address:</label>
+    <input type="text" th:field="*{contact.address}" id="contact.address" required>
+    <br>
+    <label for="contact.city">ARL City:</label>
+    <input type="text" th:field="*{contact.city}" id="contact.city" required>
+    <br>
+    <label for="contact.state">ARL State:</label>
+    <input type="text" th:field="*{contact.state}" id="contact.state" required>
+    <br>
 	<input name="submit" type="submit" value="submit" />
 	</form>
 	<br>
