@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Adoptee Application List</title>
+</head>
+<body>
+    <h1>View Adoptee Application List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Household Size</th>
+                <th>Number of Pets</th>
+                <th>Has Children</th>
+                <th>Living Space</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="adoptee : ${adoptees}">
+                <td th:text="${adoptee.id}"></td>
+                <td th:text="${adoptee.contact.name}"></td>
+                <td th:text="${adoptee.contact.email}"></td>
+                <td th:text="${adoptee.householdSize}"></td>
+                <td th:text="${adoptee.numberOfPetsInFamily}"></td>
+                <td th:text="${adoptee.hasChildren} ? 'Yes' : 'No'"></td>
+                <td th:text="${adoptee.livingSpace} ? 'House/Other' : 'Apartment'"></td>
+                <td th:text="${adoptee.description}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+	<h3><a href="/view-animal-list">View list of animals for adoption</a></h3>
+	<h3><a href="/arl-homepage">Return to ARL Home Page</a></h3>
+	<h3><a href="/index">Return to Home Page</a></h3>
+</body>
+</html>
