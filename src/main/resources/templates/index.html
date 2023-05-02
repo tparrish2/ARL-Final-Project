@@ -1,16 +1,240 @@
-<!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+
+<html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Welcome to the Mid Iowa Animal For Adoption Program</title>
+<title>Home page</title>
+<meta charset="UTF-8">
+
+
+ <meta name="description" content="Home Page">
+ <meta name="keywords" content="pets, dogs, cats, rescue, shelter">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  
+<style>
+.navbar{
+justify-content:flex-end;
+}
+
+.container
+{
+border:2px dotted black;
+
+}
+
+footer {
+			padding:0.5em;
+			}
+			
+@font-face {
+    font-family: 'action_manbold_italic';
+    src: url('../fonts/Action_Man_Bold_Italic-webfont.eot');
+    src: url('../fonts/Action_Man_Bold_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Action_Man_Bold_Italic-webfont.woff2') format('woff2'),
+         url('../fonts/Action_Man_Bold_Italic-webfont.woff') format('woff'),
+         url('../fonts/Action_Man_Bold_Italic-webfont.ttf') format('truetype'),
+         url('../fonts/Action_Man_Bold_Italic-webfont.svg#action_manbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.container
+{
+	background-color:white;
+	
+	
+}
+nav a:link 
+{
+	color:black;
+	text-decoration:none;
+}
+nav a:visited 
+{
+	color:black;
+	text-decoration:none;
+}
+
+
+
+	 
+
+ body{
+		 font-family: Georgia, serif;
+		 background-image: url("../images/background.jpg")
+	 
+     }
+ h1  {
+	
+	 color:brown;
+	 text-align: center;
+	 font-family: 'Knewave', cursive;
+	
+	 
+ }
+ h2, h3 {
+	 font-family: 'action_manbold_italic';
+     color:#b35900;
+	 
+	 padding:8px;
+	margin-right:16px;
+	
+	
+   	 
+ }
+ 
+ ul li {
+	 color:#660000;
+	 list-style-position: inside;
+ }
+ ul li a {
+	 color: brown;
+	 
+ }
+
+
+
+ footer
+ {
+	text-align: center; 
+	border-top: 5px dotted black;
+	margin-top: 0.5em;
+	font-size:0.95em;
+	
+ }
+ 
+ .thick {
+	 font-weight:bold;
+	 font-style:oblique;
+ }
+ 
+h1.uppercase {
+  text-transform: uppercase;
+}
+
+p span.greenbold {
+	 color:green;
+	 font-weight:bold;
+	 font-style:italic;
+ }
+/* unvisited link */
+a:link {
+  color: blue;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+
+
+h3::first-letter {
+  font-size: xx-large;
+  font-style:italic;
+ }
+</style>
+  
 </head>
 <body>
-	<h1>Welcome to the Mid Iowa Animal For Adoption Program</h1>
-	<h2>Are You An Adoptee Looking To Adopt, Or An ARL Putting Animals Up For Adoption?</h2>
-	<a href = "/adoptee-homepage">Adoptee; Find An Animal To Adopt</a><br>
-	<a href = "/arl-homepage">ARL; Put An Animal Up For Adoption</a><br>
-	<b></b>
-	<b></b>
-	<a href = "/about">Are you a representitive of an ARL or equivalent looking to use our site? Click here to contact us</a>
+<div class="container">
+
+	<header>
+	<img  src="https://pixabay.com/get/g011725d098fdabe03e989778b9ebf92ab35c237b3f5be03b706f465e27a496e33b3038202355ae4bccddce090a414e28.png" alt="PTG site banner" width= "100%" height= "240px" >
+		<h1 class="uppercase" style="text-align:center;">Pets To Go</h1>
+	
+	</header>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+ 
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+<ul class="navbar-nav">
+ <li class="nav-item">
+      <a class="nav-link" href="/index">Home</a>
+    </li>
+<li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        About
+      </a>
+      <div class="dropdown-menu " >
+        <a class="dropdown-item" href="/about">About</a>
+        <a class="dropdown-item" href="/view-animal-list-adoptee">Our Pets</a>
+        </div>
+    </li>
+
+  </ul>
+  </div>
+  </nav>
+		
+<!-- Add a div class of row-->
+<div class="row">
+
+  <!-- Add a class of col to the divs. Bootstrap will automatically stack the columns when the viewport gets smaller. Then adjust the cols so that the middle col is larger than the other two. Style the text and background in each column using bootstrap background color to each column-->
+    <div class="col-sm-3">
+      <h3 style="text-align: center;">Hours</h3>
+      <ul>
+	  <li>Sunday 12:00 noon to 5:00 pm</li>
+       <li>Monday – Thursday 10:00 am to 7:00 pm</li>
+       <li>Friday 10:00 am to 4:00 pm</li>
+       <li>Saturday 9:00 am to 5:00 pm</li>
+      </ul>
+  
+    </div>
+    <div class="col-sm-6">
+      <h3>Are You An Adoptee Looking To Adopt, Or An ARL Putting Animals Up For Adoption?</h3>
+      <ul>
+	<li><a href = "/adoptee-homepage">Adoptee: Find An Animal To Adopt</a></li>
+	<li><a href = "/arl-homepage">ARL: Put An Animal Up For Adoption</a></li>
+
+	<li><a href = "/about">Are you a representitive of an ARL or equivalent looking to use our site? Click here to contact us</a></li>
+	</ul>
+
+
+
+    </div>
+  
+    <div class="col-sm-3">
+      <h3 style="text-align:center;">Location</h3>        
+      <p style="text-align:center;">3183 S Veterans Pkwy</p>
+	  <p style="text-align:center;">Springfield, Illinois 62704</p>
+	  <p style="text-align:center;">Phone:(217) 698-3091</p>
+    </div><!--close the column div here-->
+</div><!--close the row div here-->
+
+
+<!-- add bootstrap classes to color the background and text of the footer.-->
+
+
+	
+<footer>
+	<p>For educational purpose only! <img width="5%" height= "5%" src="https://pixabay.com/get/gdc332ac0356f3a3af9544a21cbe2a0071d45222bd7680e2d5ae0a6d001e4cfaf6a02fcb29cbfa6eaa956736fb06d2d87_640.png" alt="Pets logo"></p>
+	
+
+<p><a href="#top">Go to the top of the page</a></p>
+<p>
+<a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img width="54"
+        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+        alt="Valid CSS!" />
+    </a>
+</p>
+</footer>
+
+<!--close the container div here-->
+
+<!--add the bootstrap jquery script here-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</div>
 </body>
 </html>

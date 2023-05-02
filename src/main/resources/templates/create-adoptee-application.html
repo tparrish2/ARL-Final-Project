@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create Adoptee Application</title>
+</head>
+<body>
+    <h1>Create Adoptee Application</h1>
+    <form action="#" th:action="@{/create-adoptee-application}" th:object="${adoptee}" method="post">
+        <h2>Contact Information:</h2>
+        <label for="contact.name">Name:</label>
+        <input type="text" th:field="*{contact.name}" id="contact.name" required>
+        <br>
+        <label for="contact.phone">Phone:</label>
+        <input type="text" th:field="*{contact.phone}" id="contact.phone" required>
+        <br>
+        <label for="contact.email">Email:</label>
+        <input type="email" th:field="*{contact.email}" id="contact.email" required>
+        <br>
+        <label for="contact.address">Address:</label>
+        <input type="text" th:field="*{contact.address}" id="contact.address" required>
+        <br>
+        <label for="contact.city">City:</label>
+        <input type="text" th:field="*{contact.city}" id="contact.city" required>
+        <br>
+        <label for="contact.state">State:</label>
+        <input type="text" th:field="*{contact.state}" id="contact.state" required>
+        <br><br>
+        <h2>Adoptee Information:</h2>
+        <label for="householdSize">Household Size:</label>
+        <input type="number" th:field="*{householdSize}" id="householdSize" required>
+        <br>
+        <label for="numberOfPetsInFamily">Number of Pets in Family:</label>
+        <input type="number" th:field="*{numberOfPetsInFamily}" id="numberOfPetsInFamily" required>
+        <br>
+        <label for="hasChildren">Has Children:</label>
+        <input type="checkbox" th:field="*{hasChildren}" id="hasChildren">
+        <br>
+        <label for="livingSpace">Living Space:</label>
+        <select th:field="*{livingSpace}" id="livingSpace" required>
+            <option value="true">House/Other</option>
+            <option value="false">Apartment</option>
+        </select>
+        <br>
+        <label for="description">Additional Information:</label>
+        <textarea th:field="*{description}" id="description" rows="4" cols="50" required></textarea>
+        <br><br>
+        <button type="submit">Submit Application</button>
+    </form>
+</body>
+</html>
