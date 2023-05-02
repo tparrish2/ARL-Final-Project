@@ -1,5 +1,8 @@
 package ARL.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import ARL.beans.Animals;
 import ARL.repository.AnimalsRepository;
@@ -83,6 +87,29 @@ public class AnimalsWebController {
 		repo.delete(a);
 		return EnterAnAnimal(model);
 	}
-	
-	
+	 @GetMapping("/animal-search")
+	    public String searchAnimal(Model model) {
+	        model.addAttribute("searchAnimal", new Animals());
+	        return "animal-search";
+	    }
+
+	    @PostMapping("/animal-search")
+	    public String searchAnimal(@ModelAttribute Animals searchAnimal, Model model) {
+	        List<Animals> animals = repo.findAll().stream()
+	                .filter(animal -> animalMatchesSearch(animal, searchAnimal))
+	                .collect(Collectors.toList());
+	        model.addAttribute("animals", animals);
+	        return "animal-search-results";
+	    }
+
+	    private boolean animalMatchesSearch(Animals animal, Animals searchAnimal) {
+	        boolean nameMatches = searchAnimal.getAnimalName() == null || searchAnimal.getAnimalName().trim().isEmpty() || animal.getAnimalName().equalsIgnoreCase(searchAnimal.getAnimalName());
+	        boolean typeMatches = searchAnimal.getAnimalType() == null || searchAnimal.getAnimalType().trim().isEmpty() || animal.getAnimalType().equalsIgnoreCase(searchAnimal.getAnimalType());
+	        boolean breedMatches = searchAnimal.getBreed() == null || searchAnimal.getBreed().trim().isEmpty() || animal.getBreed().equalsIgnoreCase(searchAnimal.getBreed());
+
+	        return nameMatches && typeMatches && breedMatches;
+	    }
+
+
+ 
 }
