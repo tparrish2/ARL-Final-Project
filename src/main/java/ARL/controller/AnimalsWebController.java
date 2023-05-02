@@ -84,9 +84,5 @@ public class AnimalsWebController {
 		return EnterAnAnimal(model);
 	}
 	
-	@GetMapping("/view-adoptee-application-list")
-	public String ViewAdopteeApps() {
-		return "view-adoptee-application-list";
-	}
-
+	
 }
